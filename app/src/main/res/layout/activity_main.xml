@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Главный экран: чёрный фон на весь экран.
+
+  Это минимальный каркас. Всё, что нужно для старта любого приложения,
+  уже есть: контейнер @+id/root (чёрный фон) и пустой @+id/content,
+  в который потом добавляются редактор кода, списки файлов, кнопки и т.д.
+
+  Хотите ЧИСТО чёрный экран без единой надписи — удалите блок
+  <TextView ... /> целиком (или закомментируйте его).
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true">
+
+    <!-- Сюда позже добавляется интерфейс IDE (редактор, консоль, меню). -->
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Неброская надпись по центру. Удалите, чтобы экран был пустым. -->
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alpha="0.30"
+        android:fontFamily="monospace"
+        android:letterSpacing="0.12"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+</FrameLayout>

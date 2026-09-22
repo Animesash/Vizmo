@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ================================================================
+   MobiX IDE — манифест приложения
+   пакет: com.mobix.ide.android     минимум: Android 8.0 (API 26)
+  ================================================================
+
+  Две вещи, о которых важно знать:
+
+  1) Атрибут package в этом файле НЕ указан.
+     • Сборка через Gradle: имя пакета берётся из namespace в
+       app/build.gradle (в новых версиях AGP атрибут здесь запрещён).
+     • Сборка без Gradle (./build.sh в Termux): build.sh сам подставляет
+       атрибут package в копию манифеста, которая лежит в папке build/.
+       Исходный файл при этом не меняется.
+
+  2) Тега uses-sdk здесь тоже НЕТ (это тоже правильно для Gradle):
+     • Gradle: minSdk/targetSdk заданы в app/build.gradle;
+     • build.sh: значения уходят в aapt2 отдельными ключами
+       (min sdk version 26, target sdk version 34).
+     Проверено: в собранном APK получается sdkVersion 26 и targetSdkVersion 34.
+
+  Внимание: внутри комментариев XML нельзя писать два дефиса подряд,
+  иначе парсер выдаёт «not well-formed (invalid token)».
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Приложению не нужны никакие разрешения (permissions):
+         чёрный экран ничего не читает и никуда не ходит. -->
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MobiX">
+
+        <!-- Главный (и пока единственный) экран приложения: чёрный экран. -->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize|uiMode"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MobiX"
+            android:windowSoftInputMode="adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

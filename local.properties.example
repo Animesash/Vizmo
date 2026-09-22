@@ -1,0 +1,8 @@
+# Не коммитьте этот файл в git — он у каждого свой.
+# Файл подсказывает Gradle, где лежит Android SDK на ВАШЕМ устройстве.
+#
+# В Termux:  sdk.dir=/data/data/com.termux/files/home/android-sdk
+# В Linux:   sdk.dir=/home/имя/Android/Sdk
+#
+# Просто скопируйте файл:  cp local.properties.example local.properties
+sdk.dir=/data/data/com.termux/files/home/android-sdk

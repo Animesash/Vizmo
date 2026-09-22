@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+      Тема приложения: полностью чёрная, без заголовка (ActionBar)
+      и без скруглённых углов окна. Она же отвечает за то, чтобы
+      при запуске не было белой вспышки — фон окна изначально чёрный.
+      Родитель Theme.Material есть на Android 5.0+, у нас минимум Android 8.0.
+    -->
+    <style name="Theme.MobiX" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:colorBackground">@color/black</item>
+        <item name="android:colorBackgroundFloating">@color/grey_dark</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+</resources>
