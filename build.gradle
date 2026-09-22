@@ -1,0 +1,7 @@
+// Корневой build-файл.
+// Здесь объявляется версия Android Gradle Plugin (AGP).
+// Требуется JDK 17 (в Termux: pkg install openjdk-17).
+
+plugins {
+    id 'com.android.application' version '8.1.4' apply false
+}

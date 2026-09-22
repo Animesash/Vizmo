@@ -1,0 +1,65 @@
+// Модуль приложения MobiX IDE.
+// Никаких библиотек и AndroidX — только стандартный android framework,
+// поэтому проект собирается быстро и легко даже на телефоне.
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.mobix.ide.android'   // = имя пакета из AndroidManifest.xml
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.mobix.ide.android"
+        minSdk 26           // Android 8.0 Oreo — минимальная версия
+        targetSdk 34        // Android 14
+        versionCode 10000   // держите в согласии с файлом VERSION
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // Раскомментируйте и укажите свой ключ, чтобы подписывать release-сборку
+            // (в Termux ключ делается командой keytool, см. README):
+            //
+            // signingConfigs {
+            //     release {
+            //         storeFile file(System.getenv("HOME") + "/.android/mobix-release.keystore")
+            //         storePassword "ВАШ_ПАРОЛЬ_ХРАНИЛИЩА"
+            //         keyAlias "mobix"
+            //         keyPassword "ВАШ_ПАРОЛЬ_КЛЮЧА"
+            //     }
+            // }
+            // signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        buildConfig false
+    }
+
+    lint {
+        abortOnError false      // не валить сборку из-за предупреждений
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    // Зависимостей нет. Если понадобится библиотека —
+    // положите .jar в app/libs и раскомментируйте строку ниже:
+    //
+    // implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

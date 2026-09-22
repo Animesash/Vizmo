@@ -1,0 +1,21 @@
+// MobiX IDE — минимальный Android-проект (Java, только android framework).
+// Этот файл говорит Gradle, какие модули входят в проект.
+
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "MobiX-IDE"
+include ':app'

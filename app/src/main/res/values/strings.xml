@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Название приложения (видно под иконкой в списке программ). -->
+    <string name="app_name">MobiX IDE</string>
+</resources>
