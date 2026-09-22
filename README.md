@@ -13,9 +13,12 @@
 | **Язык** | Java (только стандартный Android framework, без AndroidX) |
 | **Зависимости** | их нет — значит проект собирается быстро и на телефоне |
 
-Проверено на реальной сборке: APK собирается, подписывается, `resources.arsc` выровнен,
-`aapt2 dump badging` показывает `package: com.mobix.ide.android`, `sdkVersion: 26`,
-`targetSdkVersion: 34`, `launchable-activity: MainActivity`.
+Конвейер проверен на реальных инструментах: `aapt2` собирает ресурсы и генерирует `R.java`,
+Java-код компилируется против настоящего `android.jar` (API 34), APK упаковывается,
+выравнивается и подписывается (`apksigner verify` — OK). В собранном APK
+`aapt2 dump badging` показывает `package: com.mobix.ide.android`, `versionCode: 10000`,
+`sdkVersion: 26`, `targetSdkVersion: 34`, `launchable-activity: ...MainActivity`,
+`application-label: MobiX IDE`.
 
 ---
 
